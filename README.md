@@ -35,6 +35,7 @@ Optional:
 
 
 Examples
+
 In this example the utility will authenticate with user/password and will mount OneDrive repository as drive X:
 Cookie365 -s https://yoursite.sharepoint.com -user user@domain.com -p password -mount x: -homedir
 
@@ -42,5 +43,6 @@ In this example the utility will only authenticate with user/password and create
 Cookie365 -s https://yoursite.sharepoint.com -user user@domain.com -p password 
 
 In this example the utility will authenticate using ADFS (and will not ask any user/password to the user) and will mount OneDrive repository as drive X: - In order to work, your environment should be ADFS enabled, and your users should be logged in in  Domain-Joined PC
+
 Cookie365 -s https://yoursite.sharepoint.com -mount x: -homedir
 
