@@ -17,19 +17,19 @@ Mandatory
 Optional:
 
 
->  -u <user>: if you are not using ADFS you can specify a username with the format user@domain.com
+>  -u user: if you are not using ADFS you can specify a username with the format user@domain.com
 
 
->  -p <password>: if you are not using ADFS you need to specify your password
+>  -p password: if you are not using ADFS you need to specify your password
  
 
-> -d <domain>: if you are using ADFS but your internal domain is different from Office365 domain you 
+> -d domain: if you are using ADFS but your internal domain is different from Office365 domain you 
               can specify a different Office365 domain with the format domain.com 
 
 >  -debug: more details
 
 
->  -offset <minutes>: Offset in minutes the expiration of cookies
+>  -offset minutes: Offset in minutes the expiration of cookies
 
 
 >  -quiet: be quiet...
