@@ -12,7 +12,7 @@ Usage:
 Mandatory
 
 
-> -s <sharepoint URL(example https://yourdomain-my.sharepoint.com)
+> -s <sharepoint URL(example https://yourdomain-my.sharepoint.com)>
 
 Optional:
 
