@@ -1,4 +1,4 @@
-# Cookie365 v.0.7
+# Cookie365 v.1.0
 Utility to Mount OneDrive For Business As a Disk - Office365
 
 Works also in ADSF integrated environments, without asking user/password
@@ -7,10 +7,9 @@ Usage:
 
 > 
 
-> Cookie365 -s URL [-u user@domain.com | -d domain.com] [-p {password}] [-quiet] [-mount [disk] [-homedir]]
+> Cookie365 -s URL [-u user@domain.com | -d domain.com] [-p {password}] [-quiet] [-mount [disk] [-homedir]] [-offset minutes] [-debug]
 
 Mandatory
-
 
 
 > -s <sharepoint URL(example https://yourdomain-my.sharepoint.com)
@@ -26,6 +25,11 @@ Optional:
 
 > -d <domain>: if you are using ADFS but your internal domain is different from Office365 domain you 
               can specify a different Office365 domain with the format domain.com 
+
+>  -debug: more details
+
+
+>  -offset <minutes>: Offset in minutes the expiration of cookies
 
 
 >  -quiet: be quiet...
