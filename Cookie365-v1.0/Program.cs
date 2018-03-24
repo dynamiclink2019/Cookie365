@@ -118,7 +118,7 @@ namespace Cookie365
                     {
                         String user = username.Split('@')[0];
                         String domain = username.Split('@')[1];
-                        homedir = "DavWWWRoot\\personal\\" + user + "_" + domain.Split('.')[0] + "_" + domain.Split('.')[1] + "\\Documents";
+                        homedir = "personal\\" + user + "_" + domain.Split('.')[0] + "_" + domain.Split('.')[1] + "\\Documents";
                     }
 
                     // if not quiet, display parameters
@@ -150,13 +150,14 @@ namespace Cookie365
                             {
                                 if (InternetSetCookie(baseUrl, null, cookies["rtFA"].ToString() + "; Expires = " + cookies["rtFA"].Expires.AddMinutes(expire).ToString("R")))
                                 {
-                                    if (!quiet) log.WriteLine("[OK]");
-                                    if (debug) log.Dbg("Cookie Expiration", cookies["FedAuth"].Expires.AddMinutes(expire).ToString("R"));
+                                  if (!quiet) log.WriteLine("[OK]");
+                                  if (debug) log.Dbg("Cookie Expiration", cookies["FedAuth"].Expires.AddMinutes(expire).ToString("R"));
                                   if (mount)
                                   {
+                                      String cmdArgs = "/c net use " + disk + Uri.UnescapeDataString(" \"\\\\" + sharepointUri.Host + "@ssl\\DavWWWRoot" + sharepointUri.PathAndQuery.Replace("/", "\\") + homedir +"\"");
+                                      if (debug) log.Dbg("Command", cmdArgs);
                                       try
                                       {
-                                          String cmdArgs = "/c net use " + disk + " \\\\" + sharepointUri.Host + "@ssl" + sharepointUri.PathAndQuery.Replace("/", "\\") + homedir;
                                           if (!quiet) Console.Write("Mounting Share...");
                                           System.Diagnostics.Process Process = new System.Diagnostics.Process();
                                           Process.StartInfo = new System.Diagnostics.ProcessStartInfo("cmd", cmdArgs);
@@ -165,14 +166,22 @@ namespace Cookie365
                                           Process.Start();
                                           Process.WaitForExit();
                                           String mountOutput = Process.StandardOutput.ReadToEnd();
-                                          if (!quiet)
+                                          if (Process.ExitCode == 0)
                                           {
-                                              log.WriteLine("[OK]");
-                                              log.WriteLine(mountOutput);
+                                                if (!quiet)
+                                                {
+                                                    log.WriteLine("[OK]");
+                                                    log.WriteLine(mountOutput);
+                                                }
                                           }
+                                          else
+                                          {
+                                                log.Err("Mounting Share ", cmdArgs);
+                                          }
+
                                       }
                                       catch (Exception e)
-                                      { log.Err("Mounting Share", e.Message); }
+                                      { log.Err("Mounting Share "+cmdArgs, e.Message); }
                                   }
                                 }
                             }
