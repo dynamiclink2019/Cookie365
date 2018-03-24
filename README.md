@@ -1,5 +1,5 @@
-# Cookie365 v.1.0
-Utility to Mount OneDrive For Business As a Disk - Office365
+# Cookie365 v.1.1
+Utility to Mount OneDrive For Business and Sharepoint Online As a Disk - Office365
 
 Works also in ADSF integrated environments, without asking user/password
 

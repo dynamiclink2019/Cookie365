@@ -70,7 +70,7 @@ namespace Cookie365
                     if (!quiet)
                     {
                         // Message
-                        log.WriteLine("============= Cookie365 v1.0 - (C)opyright 2014-2018 Fabio Cuneaz =============\n");
+                        log.WriteLine("============= Cookie365 v1.1 - (C)opyright 2014-2018 Fabio Cuneaz =============\n");
                         log.WriteLine("OneDrive for business URL", sharepointUrl);
                     }
 
